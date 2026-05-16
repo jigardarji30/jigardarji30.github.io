@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Jigar Darji" />
+<meta name="description" content="Jigar Darji, Full Stack Developer with 7+ years building Laravel, Symfony, Node.js & React apps for startups and agencies worldwide." />
+
+<title>Jigar Darji | Full Stack Developer | Laravel, Symfony, Node.js</title>
+<link rel="canonical" href="https://jigardarji30.github.io/website/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Jigar Darji Portfolio" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://jigardarji30.github.io/website/" />
+<meta property="og:title" content="Jigar Darji | Full Stack Laravel, Symfony & Node.js Developer" />
+<meta property="og:description" content="7+ years building scalable web platforms with Laravel, Symfony, Node.js and React. Available for freelance projects." />
+<meta property="og:image" content="https://jigardarji30.github.io/website/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Jigar Darji, Full Stack Developer" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Jigar Darji | Full Stack Developer" />
+<meta name="twitter:description" content="7+ years building scalable web platforms with Laravel, Symfony, Node.js and React." />
+<meta name="twitter:image" content="https://jigardarji30.github.io/website/assets/og-image.png" />
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23c8ff00'/%3E%3C/svg%3E" />
+
+<!-- JSON-LD Person schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jigar Darji",
+  "url": "https://jigardarji30.github.io/website/",
+  "image": "https://jigardarji30.github.io/website/assets/og-image.png",
+  "jobTitle": "Full Stack Developer",
+  "description": "Full Stack Developer with 7+ years of experience building Laravel, Symfony, Node.js and React applications for startups and agencies worldwide.",
+  "email": "mailto:jigar.webexpert@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": [
+    "Laravel",
+    "Symfony",
+    "Node.js",
+    "PHP",
+    "React",
+    "Next.js",
+    "REST API Development",
+    "SaaS Development",
+    "Ecommerce",
+    "Custom Web Applications"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/jigardarji30/",
+    "https://github.com/jigardarji30"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #0a0a0b;
+    --bg-elev: #111114;
+    --bg-card: #14141a;
+    --border: #1f1f27;
+    --border-strong: #2a2a36;
+    --text: #f5f5f7;
+    --text-dim: #a1a1aa;
+    --text-muted: #6b6b76;
+    --accent: #ffffff;
+    --accent-glow: rgba(255, 255, 255, 0.08);
+    --brand: #c8ff00;
+    --brand-soft: rgba(200, 255, 0, 0.12);
+    --gradient: linear-gradient(135deg, #c8ff00 0%, #7fff5e 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(200, 255, 0, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(127, 255, 94, 0.04), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 18px 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(0px);
+  }
+
+  .navbar.scrolled {
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--brand);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--brand);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: var(--brand-soft);
+    border: 1px solid rgba(200, 255, 0, 0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--brand);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--brand);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--brand); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 8px transparent; }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .accent {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--brand);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(200, 255, 0, 0.25);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-elev);
+    border-color: var(--text-dim);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+  }
+
+  .code-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  .code-header {
+    display: flex;
+    gap: 6px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+
+  .code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #2a2a36;
+  }
+
+  .code-dot:nth-child(1) { background: #ff5f57; }
+  .code-dot:nth-child(2) { background: #febc2e; }
+  .code-dot:nth-child(3) { background: #28c840; }
+
+  .code-line {
+    color: var(--text-dim);
+    margin: 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .code-key { color: #ff79c6; }
+  .code-str { color: var(--brand); }
+  .code-fn { color: #82aaff; }
+  .code-cm { color: var(--text-muted); }
+
+  .floating-card {
+    position: absolute;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-card.fc-1 {
+    top: -20px;
+    right: -20px;
+    animation-delay: 0s;
+  }
+
+  .floating-card.fc-2 {
+    bottom: -16px;
+    left: -24px;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .fc-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--brand-soft);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand);
+    font-weight: 700;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--brand);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--brand);
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-text p {
+    color: var(--text-dim);
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .highlight {
+    padding: 18px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .highlight-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .highlight-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .about-visual {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--brand-soft) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .vis-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .vis-row:last-child { border-bottom: none; }
+
+  .vis-label {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  .vis-value {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-cat {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s ease;
+  }
+
+  .skill-cat:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .skill-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--brand-soft);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--brand);
+  }
+
+  .skill-cat h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+  }
+
+  .skill-tag:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brand), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+  }
+
+  .service-card:hover::after {
+    opacity: 1;
+  }
+
+  .service-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .service-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .service-arrow {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 500;
+    gap: 6px;
+    transition: gap 0.2s ease;
+  }
+
+  .service-card:hover .service-arrow {
+    gap: 10px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .project-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-img {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-img svg,
+  .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .project-img img {
+    transform: scale(1.04);
+  }
+
+  .project-tag-row {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .project-status {
+    padding: 5px 10px;
+    background: rgba(10, 10, 11, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .project-content {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .project-content p {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .project-meta span {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .project-outcome {
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-outcome strong {
+    color: var(--brand);
+    font-weight: 500;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    color: var(--brand);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: gap 0.2s ease;
+  }
+
+  .project-link:hover {
+    gap: 10px;
+  }
+
+  /* WHY ME */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .why-card {
+    padding: 28px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .why-card .check {
+    width: 36px;
+    height: 36px;
+    background: var(--brand);
+    color: var(--bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .why-card h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .why-card p {
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 100px 0;
+  }
+
+  .contact-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 64px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--brand-soft) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-card h2 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .contact-card h2 .accent {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contact-card p {
+    color: var(--text-dim);
+    font-size: 17px;
+    margin-bottom: 36px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+  }
+
+  .contact-info-item strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-text {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .footer-social a:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+    transform: translateY(-2px);
+  }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 968px) {
+    .hero-grid,
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-visual {
+      order: -1;
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .skills-grid,
+    .services-grid,
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: block;
+    }
+
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: var(--bg-elev);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      gap: 20px;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .hero {
+      padding: 100px 0 60px;
+      min-height: auto;
+    }
+
+    .hero-stats {
+      gap: 24px;
+    }
+
+    .stat-num {
+      font-size: 26px;
+    }
+
+    .skills-grid,
+    .services-grid,
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+      padding: 48px 24px;
+    }
+
+    .contact-info {
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-dot"></span>
+      Jigar Darji
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me →</a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content reveal">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Available for freelance projects
+        </div>
+        <h1>
+          Full Stack Developer<br>
+          building <span class="accent">scalable</span> web platforms.
+        </h1>
+        <p class="hero-subtitle">
+          Hi, I'm Jigar Darji, a Full Stack Developer specializing in Laravel, Symfony, Node.js, and custom web applications.
+        </p>
+        <p class="hero-tagline">
+          Helping startups and agencies build secure, maintainable platforms that scale with their business.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">7+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="code-card">
+          <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+          </div>
+          <div class="code-line"><span class="code-cm">// app/Services/Builder.php</span></div>
+          <div class="code-line"><span class="code-key">class</span> <span class="code-fn">Builder</span> {</div>
+          <div class="code-line">&nbsp;&nbsp;<span class="code-key">public function</span> <span class="code-fn">build</span>() {</div>
+          <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-key">return</span> [</div>
+          <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'clean architecture'</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'scalable APIs'</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'reliable delivery'</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;];</div>
+          <div class="code-line">&nbsp;&nbsp;}</div>
+          <div class="code-line">}</div>
+        </div>
+        <div class="floating-card fc-1">
+          <div class="fc-icon">L</div>
+          <div>
+            <div style="font-weight:600;">Laravel 11</div>
+            <div style="color:var(--text-muted); font-size:11px;">Backend</div>
+          </div>
+        </div>
+        <div class="floating-card fc-2">
+          <div class="fc-icon">⚛</div>
+          <div>
+            <div style="font-weight:600;">React</div>
+            <div style="color:var(--text-muted); font-size:11px;">Frontend</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">About me</div>
+        <h2 class="section-title">Engineer focused on building products that businesses can rely on.</h2>
+        <p>
+          I'm a software engineer with <strong style="color:var(--text)">7+ years of experience</strong> building full stack web applications using Laravel, Symfony, Node.js, React, and modern backend architecture.
+        </p>
+        <p>
+          I've worked across ecommerce, booking systems, SaaS platforms, and custom business software. I partner with founders and agencies who need a senior engineer they can trust to ship.
+        </p>
+        <p>
+          My approach is straightforward: write clean, maintainable code, communicate clearly, and treat your project like it's my own.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            <div class="highlight-title">MSCIT Graduate</div>
+            <div class="highlight-desc">Strong CS fundamentals</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-title">Senior Full Stack Engineer</div>
+            <div class="highlight-desc">Laravel · Symfony · Node.js</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-title">Global Clients</div>
+            <div class="highlight-desc">US, EU & APAC delivery</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-title">US Timezone Overlap</div>
+            <div class="highlight-desc">Reliable async + live calls</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="vis-row">
+          <span class="vis-label">Location</span>
+          <span class="vis-value">India · Remote Worldwide</span>
+        </div>
+        <div class="vis-row">
+          <span class="vis-label">Experience</span>
+          <span class="vis-value">7+ Years</span>
+        </div>
+        <div class="vis-row">
+          <span class="vis-label">Education</span>
+          <span class="vis-value">MSCIT</span>
+        </div>
+        <div class="vis-row">
+          <span class="vis-label">Specialization</span>
+          <span class="vis-value">Laravel · Symfony · Node.js · React</span>
+        </div>
+        <div class="vis-row">
+          <span class="vis-label">Availability</span>
+          <span class="vis-value" style="color:var(--brand)">● Open for projects</span>
+        </div>
+        <div class="vis-row">
+          <span class="vis-label">Engagement</span>
+          <span class="vis-value">Hourly · Project · Retainer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Tech stack</div>
+      <h2 class="section-title">Tools I use to ship production-grade software.</h2>
+      <p class="section-subtitle">A focused stack, picked for stability, performance, and long-term maintainability.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Backend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">PHP 8</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">Symfony</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Redis</span>
+        </div>
+      </div>
+
+      <div class="skill-cat reveal reveal-delay-1">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">HTML5 / CSS3</span>
+        </div>
+      </div>
+
+      <div class="skill-cat reveal reveal-delay-2">
+        <div class="skill-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>DevOps & Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Nginx</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What I do</div>
+      <h2 class="section-title">Services tailored for startups and agencies.</h2>
+      <p class="section-subtitle">End-to-end development, or focused expertise dropped into your existing team. Whichever fits the project.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">/ 01</div>
+        <h3>Custom Web Application Development</h3>
+        <p>From idea to production. I design, build, and deploy full stack applications tailored to your specific business workflows.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">/ 02</div>
+        <h3>Laravel Development</h3>
+        <p>Senior-level Laravel expertise, from new builds to rescuing legacy codebases. Clean architecture, tested, and documented.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">/ 03</div>
+        <h3>Symfony &amp; Node.js</h3>
+        <p>Enterprise-grade Symfony apps and Node.js/Express services. Proper architecture, event-driven flows, built to scale.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">/ 04</div>
+        <h3>API Integration</h3>
+        <p>Stripe, PayPal, Twilio, AWS, OpenAI, social logins, shipping providers. I integrate third-party APIs reliably and securely.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">/ 05</div>
+        <h3>SaaS MVP Development</h3>
+        <p>Go from concept to live MVP in weeks, not months. Multi-tenant architecture, billing, auth, and admin, all production-ready.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">/ 06</div>
+        <h3>Existing Project Maintenance</h3>
+        <p>Inherited a Laravel or Symfony codebase? I can audit, refactor, fix bugs, add features, and keep things running smoothly.</p>
+        <span class="service-arrow">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Selected work</div>
+      <h2 class="section-title">Projects I've built for clients across industries.</h2>
+      <p class="section-subtitle">A snapshot of recent work. Each one focused on solving a real business problem.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Webifydev LMS -->
+      <div class="project-card reveal">
+        <div class="project-img">
+          <img src="assets/webifydev-lms.png" alt="Webifydev Learning Management System dashboard" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">LMS</span>
+            <span class="project-status">EdTech</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Webifydev Learning Management System</h3>
+          <p>A full-featured online course platform with instructor onboarding, course authoring, video lessons, quizzes, student progress tracking, certificates, and integrated payments.</p>
+          <div class="project-meta">
+            <span>Laravel</span>
+            <span>MySQL</span>
+            <span>Stripe</span>
+            <span>Video Streaming</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> End-to-end LMS launched with multi-role workflows
+          </div>
+        </div>
+      </div>
+
+      <!-- Epizon -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img">
+          <img src="assets/epizon.png" alt="Epizon short drama, movie and series streaming app" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">OTT</span>
+            <span class="project-status">Web + Mobile</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Epizon Short Drama, Movies &amp; Series</h3>
+          <p>A streaming platform for short dramas, movies, and series across web and mobile. Subscription billing, episode unlocks, watchlists, secure video delivery, and a content admin panel.</p>
+          <div class="project-meta">
+            <span>Laravel</span>
+            <span>Node.js</span>
+            <span>React Native</span>
+            <span>HLS Streaming</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> Shipped synchronized web + mobile experience with paywall
+          </div>
+        </div>
+      </div>
+
+      <!-- IronForge Gym -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-img">
+          <img src="assets/gym.png" alt="IronForge gym landing page" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">Gym</span>
+            <span class="project-status">Landing</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>IronForge Gym Website</h3>
+          <p>Modern gym landing page with bold typography, trainer profiles, membership plans, class schedules, and a results section. Built mobile-first with a high-conversion layout.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/gym" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Flame Kitchen -->
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-img">
+          <img src="assets/restaurant.png" alt="The Flame Kitchen restaurant landing page" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">Restaurant</span>
+            <span class="project-status">Landing</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>The Flame Kitchen Restaurant</h3>
+          <p>A warm, appetite-driven landing page for a neighborhood restaurant. Menu showcase, gallery, location map, and a direct WhatsApp ordering CTA for instant conversions.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>WhatsApp API</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/restaurant" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aurelius Interior -->
+      <div class="project-card reveal">
+        <div class="project-img">
+          <img src="assets/interior.png" alt="Aurelius interior design studio website" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">Interior</span>
+            <span class="project-status">Studio</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Aurelius Interior Studio</h3>
+          <p>Elegant studio site for an interior design firm. Portfolio grid, services breakdown, client testimonials, and a clean editorial layout that reflects the studio's premium positioning.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>GSAP</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/interior" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WanderLux Travel -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img">
+          <img src="assets/travel.png" alt="WanderLux travel agency website" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status">Travel</span>
+            <span class="project-status">Agency</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>WanderLux Travel Agency</h3>
+          <p>Travel agency website with destination packages, trip planner CTAs, gallery, and stat counters. Built to inspire wanderlust and convert visitors into booking enquiries.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/travel" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="project-card reveal">
+        <div class="project-img">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1a3a52"/>
+                <stop offset="100%" stop-color="#0f1f2e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#g1)"/>
+            <rect x="40" y="40" width="320" height="40" rx="8" fill="#1f3a52"/>
+            <circle cx="60" cy="60" r="6" fill="#c8ff00"/>
+            <rect x="80" y="54" width="80" height="6" rx="3" fill="#fff" opacity="0.5"/>
+            <rect x="80" y="64" width="50" height="4" rx="2" fill="#fff" opacity="0.3"/>
+            <rect x="40" y="100" width="150" height="100" rx="10" fill="#1f3a52"/>
+            <rect x="60" y="120" width="60" height="6" rx="3" fill="#c8ff00"/>
+            <rect x="60" y="136" width="100" height="4" rx="2" fill="#fff" opacity="0.4"/>
+            <rect x="60" y="148" width="80" height="4" rx="2" fill="#fff" opacity="0.3"/>
+            <rect x="60" y="170" width="80" height="20" rx="6" fill="#c8ff00"/>
+            <rect x="210" y="100" width="150" height="100" rx="10" fill="#1f3a52"/>
+            <rect x="230" y="120" width="60" height="6" rx="3" fill="#c8ff00"/>
+            <rect x="230" y="136" width="100" height="4" rx="2" fill="#fff" opacity="0.4"/>
+            <rect x="230" y="148" width="80" height="4" rx="2" fill="#fff" opacity="0.3"/>
+            <rect x="230" y="170" width="80" height="20" rx="6" fill="#fff" opacity="0.1"/>
+          </svg>
+          <div class="project-tag-row">
+            <span class="project-status">Travel</span>
+            <span class="project-status">Booking</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Travel Booking Platform</h3>
+          <p>A custom booking system for a tour operator featuring online reservations, multi-currency payments, itinerary management, and a full admin dashboard.</p>
+          <div class="project-meta">
+            <span>Laravel</span>
+            <span>React</span>
+            <span>Stripe</span>
+            <span>MySQL</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> Streamlined booking flow, reduced manual ops by 70%
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2a1a52"/>
+                <stop offset="100%" stop-color="#1a0f2e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#g2)"/>
+            <rect x="40" y="30" width="320" height="30" rx="6" fill="#3a2a52"/>
+            <rect x="50" y="40" width="60" height="10" rx="5" fill="#c8ff00"/>
+            <rect x="280" y="38" width="70" height="14" rx="7" fill="#fff" opacity="0.2"/>
+            <rect x="40" y="80" width="100" height="120" rx="8" fill="#3a2a52"/>
+            <rect x="55" y="95" width="70" height="60" rx="4" fill="#c8ff00" opacity="0.3"/>
+            <rect x="55" y="165" width="50" height="4" rx="2" fill="#fff" opacity="0.6"/>
+            <rect x="55" y="175" width="30" height="4" rx="2" fill="#c8ff00"/>
+            <rect x="55" y="185" width="40" height="8" rx="4" fill="#c8ff00"/>
+            <rect x="150" y="80" width="100" height="120" rx="8" fill="#3a2a52"/>
+            <rect x="165" y="95" width="70" height="60" rx="4" fill="#7fff5e" opacity="0.3"/>
+            <rect x="165" y="165" width="50" height="4" rx="2" fill="#fff" opacity="0.6"/>
+            <rect x="165" y="175" width="30" height="4" rx="2" fill="#c8ff00"/>
+            <rect x="165" y="185" width="40" height="8" rx="4" fill="#c8ff00"/>
+            <rect x="260" y="80" width="100" height="120" rx="8" fill="#3a2a52"/>
+            <rect x="275" y="95" width="70" height="60" rx="4" fill="#a8ff5e" opacity="0.3"/>
+            <rect x="275" y="165" width="50" height="4" rx="2" fill="#fff" opacity="0.6"/>
+            <rect x="275" y="175" width="30" height="4" rx="2" fill="#c8ff00"/>
+            <rect x="275" y="185" width="40" height="8" rx="4" fill="#c8ff00"/>
+          </svg>
+          <div class="project-tag-row">
+            <span class="project-status">Ecommerce</span>
+            <span class="project-status">Marketplace</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Ecommerce Marketplace</h3>
+          <p>Multi-vendor marketplace built from scratch. Includes vendor onboarding, product catalog, cart, payments, order management, and seller analytics.</p>
+          <div class="project-meta">
+            <span>Symfony</span>
+            <span>Next.js</span>
+            <span>PostgreSQL</span>
+            <span>Redis</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> Scaled to 200+ vendors with sub-second page loads
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-img">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1a3a2a"/>
+                <stop offset="100%" stop-color="#0f2e1a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#g3)"/>
+            <rect x="20" y="20" width="60" height="200" rx="8" fill="#1a4a2a"/>
+            <circle cx="50" cy="50" r="10" fill="#c8ff00"/>
+            <rect x="35" y="80" width="30" height="6" rx="3" fill="#fff" opacity="0.4"/>
+            <rect x="35" y="100" width="30" height="6" rx="3" fill="#fff" opacity="0.4"/>
+            <rect x="35" y="120" width="30" height="6" rx="3" fill="#c8ff00"/>
+            <rect x="35" y="140" width="30" height="6" rx="3" fill="#fff" opacity="0.4"/>
+            <rect x="100" y="20" width="280" height="60" rx="8" fill="#1a4a2a"/>
+            <rect x="115" y="35" width="80" height="10" rx="5" fill="#c8ff00"/>
+            <rect x="115" y="55" width="120" height="6" rx="3" fill="#fff" opacity="0.4"/>
+            <polyline points="280,55 300,40 320,50 340,30 360,42" stroke="#c8ff00" stroke-width="2" fill="none"/>
+            <rect x="100" y="100" width="135" height="60" rx="8" fill="#1a4a2a"/>
+            <rect x="115" y="115" width="60" height="8" rx="4" fill="#fff" opacity="0.6"/>
+            <rect x="115" y="135" width="80" height="14" rx="7" fill="#c8ff00"/>
+            <rect x="245" y="100" width="135" height="60" rx="8" fill="#1a4a2a"/>
+            <rect x="260" y="115" width="60" height="8" rx="4" fill="#fff" opacity="0.6"/>
+            <rect x="260" y="135" width="80" height="14" rx="7" fill="#7fff5e"/>
+            <rect x="100" y="180" width="280" height="40" rx="8" fill="#1a4a2a"/>
+            <rect x="115" y="195" width="100" height="6" rx="3" fill="#fff" opacity="0.4"/>
+            <rect x="115" y="207" width="60" height="4" rx="2" fill="#fff" opacity="0.3"/>
+          </svg>
+          <div class="project-tag-row">
+            <span class="project-status">SaaS</span>
+            <span class="project-status">Dashboard</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>SaaS Admin Dashboard</h3>
+          <p>Multi-tenant SaaS platform with team management, subscription billing, role-based permissions, audit logs, and real-time analytics.</p>
+          <div class="project-meta">
+            <span>Laravel</span>
+            <span>React</span>
+            <span>Stripe Billing</span>
+            <span>WebSockets</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> Launched MVP in 8 weeks, now serving 1k+ users
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-img">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3a2a1a"/>
+                <stop offset="100%" stop-color="#2e1a0f"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#g4)"/>
+            <rect x="30" y="30" width="340" height="40" rx="8" fill="#4a3a1a"/>
+            <circle cx="50" cy="50" r="8" fill="#c8ff00"/>
+            <rect x="70" y="44" width="100" height="6" rx="3" fill="#fff" opacity="0.6"/>
+            <rect x="290" y="40" width="60" height="20" rx="10" fill="#c8ff00"/>
+            <rect x="30" y="85" width="340" height="140" rx="8" fill="#4a3a1a"/>
+            <rect x="50" y="105" width="300" height="1" fill="#fff" opacity="0.2"/>
+            <circle cx="65" cy="125" r="8" fill="#c8ff00" opacity="0.6"/>
+            <rect x="85" y="118" width="100" height="6" rx="3" fill="#fff" opacity="0.7"/>
+            <rect x="85" y="128" width="160" height="4" rx="2" fill="#fff" opacity="0.4"/>
+            <rect x="290" y="120" width="60" height="14" rx="7" fill="#c8ff00" opacity="0.3"/>
+            <rect x="50" y="148" width="300" height="1" fill="#fff" opacity="0.2"/>
+            <circle cx="65" cy="168" r="8" fill="#7fff5e" opacity="0.6"/>
+            <rect x="85" y="161" width="120" height="6" rx="3" fill="#fff" opacity="0.7"/>
+            <rect x="85" y="171" width="140" height="4" rx="2" fill="#fff" opacity="0.4"/>
+            <rect x="290" y="163" width="60" height="14" rx="7" fill="#7fff5e" opacity="0.3"/>
+            <rect x="50" y="191" width="300" height="1" fill="#fff" opacity="0.2"/>
+            <circle cx="65" cy="211" r="8" fill="#a8ff5e" opacity="0.6"/>
+            <rect x="85" y="204" width="80" height="6" rx="3" fill="#fff" opacity="0.7"/>
+            <rect x="85" y="214" width="180" height="4" rx="2" fill="#fff" opacity="0.4"/>
+            <rect x="290" y="206" width="60" height="14" rx="7" fill="#a8ff5e" opacity="0.3"/>
+          </svg>
+          <div class="project-tag-row">
+            <span class="project-status">CRM</span>
+            <span class="project-status">Internal Tool</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>CRM Management System</h3>
+          <p>Custom CRM for a B2B agency. Pipeline tracking, lead scoring, email automation, Slack notifications, and detailed reporting.</p>
+          <div class="project-meta">
+            <span>Laravel</span>
+            <span>Vue.js</span>
+            <span>MySQL</span>
+            <span>Queue Workers</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Outcome:</strong> Reduced lead handling time by 60%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Why work with me</div>
+      <h2 class="section-title">A senior partner, not just a code monkey.</h2>
+      <p class="section-subtitle">Clients hire me because they want someone who treats their business like their own.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="check">✓</div>
+        <h4>7+ Years Senior Experience</h4>
+        <p>I've shipped real software for real businesses across multiple industries. Not learning on your dime.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="check">✓</div>
+        <h4>Strong Backend Expertise</h4>
+        <p>Deep PHP (Laravel/Symfony) and Node.js knowledge. I write code that's testable, secure, and easy to maintain.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="check">✓</div>
+        <h4>Legacy Codebase Friendly</h4>
+        <p>Comfortable working in existing large codebases without breaking things or rewriting the world.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="check">✓</div>
+        <h4>Clean Architecture</h4>
+        <p>SOLID principles, layered services, proper testing. Your code stays maintainable a year from now.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="check">✓</div>
+        <h4>Reliable Communication</h4>
+        <p>Daily updates, fast replies, and clear scope. You always know what's happening and what's next.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="check">✓</div>
+        <h4>Long Term Support</h4>
+        <p>I'm not here to ship and disappear. Many clients work with me on a retainer for ongoing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <h2>Let's build something <span class="accent">great together.</span></h2>
+      <p>Available for freelance projects and contract work worldwide. Tell me about your idea. I usually respond within a few hours.</p>
+
+      <div class="contact-buttons">
+        <a href="mailto:jigar.webexpert@gmail.com" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          jigar.webexpert@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/jigardarji30/" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <span>📍</span>
+          <span><strong>Location:</strong> India · Remote</span>
+        </div>
+        <div class="contact-info-item">
+          <span>🕒</span>
+          <span><strong>Timezone:</strong> IST (Available for US overlap)</span>
+        </div>
+        <div class="contact-info-item">
+          <span>⚡</span>
+          <span><strong>Response:</strong> Within 24 hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-text">© 2026 Jigar Darji · Full Stack Developer</div>
+    <div class="footer-social">
+      <a href="mailto:jigar.webexpert@gmail.com" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/jigardarji30/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+      </a>
+      <a href="https://github.com/jigardarji30" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.61-4.04-1.61C4.42 17.07 3.63 16.7 3.63 16.7c-1.08-.74.08-.72.08-.72 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.53.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.6-2.81 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.21.7.83.58A12 12 0 0 0 12 .3"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky navbar effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
