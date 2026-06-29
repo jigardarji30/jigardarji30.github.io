@@ -1022,6 +1022,136 @@
     transform: translateY(-2px);
   }
 
+  /* PRICING PILL */
+  .price-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 8px 16px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .price-pill strong {
+    color: var(--brand);
+    font-weight: 700;
+  }
+
+  /* PROJECT GROUPS */
+  .project-group-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin: 56px 0 24px;
+  }
+
+  .project-group-label:first-of-type {
+    margin-top: 8px;
+  }
+
+  .project-group-label .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    padding: 3px 10px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+
+  .project-group-label .group-note {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .project-status.is-demo {
+    background: var(--brand-soft);
+    border-color: rgba(200, 255, 0, 0.3);
+    color: var(--brand);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-quote-mark {
+    font-size: 48px;
+    line-height: 0.5;
+    color: var(--brand);
+    font-family: Georgia, serif;
+    margin-bottom: 16px;
+    height: 24px;
+  }
+
+  .testimonial-card p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 22px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .testimonial-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--brand-soft);
+    color: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .testimonial-role {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
   /* ANIMATIONS */
   .reveal {
     opacity: 0;
@@ -1056,7 +1186,8 @@
 
     .skills-grid,
     .services-grid,
-    .why-grid {
+    .why-grid,
+    .testimonials-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1107,7 +1238,8 @@
 
     .skills-grid,
     .services-grid,
-    .why-grid {
+    .why-grid,
+    .testimonials-grid {
       grid-template-columns: 1fr;
     }
 
@@ -1168,6 +1300,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Hire Me →</a>
@@ -1206,6 +1339,10 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+
+        <div class="price-pill">
+          💰 Freelance rates <strong>starting from $15/hr</strong>
         </div>
 
         <div class="hero-stats">
@@ -1450,7 +1587,12 @@
     <div class="reveal">
       <div class="section-label">Selected work</div>
       <h2 class="section-title">Projects I've built for clients across industries.</h2>
-      <p class="section-subtitle">A snapshot of recent work. Each one focused on solving a real business problem.</p>
+      <p class="section-subtitle">A snapshot of recent work. Real client builds, plus a set of demo projects that show range across industries.</p>
+    </div>
+
+    <div class="project-group-label reveal">
+      Client work
+      <span class="group-note">Production software built for paying clients</span>
     </div>
 
     <div class="projects-grid">
@@ -1498,106 +1640,6 @@
           </div>
           <div class="project-outcome">
             <strong>Outcome:</strong> Shipped synchronized web + mobile experience with paywall
-          </div>
-        </div>
-      </div>
-
-      <!-- IronForge Gym -->
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-img">
-          <img src="assets/gym.png" alt="IronForge gym landing page" loading="lazy" />
-          <div class="project-tag-row">
-            <span class="project-status">Gym</span>
-            <span class="project-status">Landing</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>IronForge Gym Website</h3>
-          <p>Modern gym landing page with bold typography, trainer profiles, membership plans, class schedules, and a results section. Built mobile-first with a high-conversion layout.</p>
-          <div class="project-meta">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Responsive</span>
-          </div>
-          <div class="project-outcome">
-            <strong>Live:</strong> Public demo
-            <a class="project-link" href="https://demo-site-7gxm.onrender.com/gym" target="_blank" rel="noopener">Visit →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- The Flame Kitchen -->
-      <div class="project-card reveal reveal-delay-3">
-        <div class="project-img">
-          <img src="assets/restaurant.png" alt="The Flame Kitchen restaurant landing page" loading="lazy" />
-          <div class="project-tag-row">
-            <span class="project-status">Restaurant</span>
-            <span class="project-status">Landing</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>The Flame Kitchen Restaurant</h3>
-          <p>A warm, appetite-driven landing page for a neighborhood restaurant. Menu showcase, gallery, location map, and a direct WhatsApp ordering CTA for instant conversions.</p>
-          <div class="project-meta">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>WhatsApp API</span>
-          </div>
-          <div class="project-outcome">
-            <strong>Live:</strong> Public demo
-            <a class="project-link" href="https://demo-site-7gxm.onrender.com/restaurant" target="_blank" rel="noopener">Visit →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aurelius Interior -->
-      <div class="project-card reveal">
-        <div class="project-img">
-          <img src="assets/interior.png" alt="Aurelius interior design studio website" loading="lazy" />
-          <div class="project-tag-row">
-            <span class="project-status">Interior</span>
-            <span class="project-status">Studio</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>Aurelius Interior Studio</h3>
-          <p>Elegant studio site for an interior design firm. Portfolio grid, services breakdown, client testimonials, and a clean editorial layout that reflects the studio's premium positioning.</p>
-          <div class="project-meta">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>GSAP</span>
-          </div>
-          <div class="project-outcome">
-            <strong>Live:</strong> Public demo
-            <a class="project-link" href="https://demo-site-7gxm.onrender.com/interior" target="_blank" rel="noopener">Visit →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- WanderLux Travel -->
-      <div class="project-card reveal reveal-delay-1">
-        <div class="project-img">
-          <img src="assets/travel.png" alt="WanderLux travel agency website" loading="lazy" />
-          <div class="project-tag-row">
-            <span class="project-status">Travel</span>
-            <span class="project-status">Agency</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>WanderLux Travel Agency</h3>
-          <p>Travel agency website with destination packages, trip planner CTAs, gallery, and stat counters. Built to inspire wanderlust and convert visitors into booking enquiries.</p>
-          <div class="project-meta">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Responsive</span>
-          </div>
-          <div class="project-outcome">
-            <strong>Live:</strong> Public demo
-            <a class="project-link" href="https://demo-site-7gxm.onrender.com/travel" target="_blank" rel="noopener">Visit →</a>
           </div>
         </div>
       </div>
@@ -1801,6 +1843,113 @@
         </div>
       </div>
     </div>
+
+    <div class="project-group-label reveal">
+      Demo projects
+      <span class="group-note">Self-initiated builds that demonstrate range — not client engagements</span>
+    </div>
+
+    <div class="projects-grid">
+      <!-- IronForge Gym -->
+      <div class="project-card reveal">
+        <div class="project-img">
+          <img src="assets/gym.png" alt="IronForge gym landing page" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status is-demo">Demo project</span>
+            <span class="project-status">Gym</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>IronForge Gym Website</h3>
+          <p>Modern gym landing page with bold typography, trainer profiles, membership plans, class schedules, and a results section. Built mobile-first with a high-conversion layout.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/gym" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Flame Kitchen -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img">
+          <img src="assets/restaurant.png" alt="The Flame Kitchen restaurant landing page" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status is-demo">Demo project</span>
+            <span class="project-status">Restaurant</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>The Flame Kitchen Restaurant</h3>
+          <p>A warm, appetite-driven landing page for a neighborhood restaurant. Menu showcase, gallery, location map, and a direct WhatsApp ordering CTA for instant conversions.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>WhatsApp API</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/restaurant" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aurelius Interior -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-img">
+          <img src="assets/interior.png" alt="Aurelius interior design studio website" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status is-demo">Demo project</span>
+            <span class="project-status">Interior</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>Aurelius Interior Studio</h3>
+          <p>Elegant studio site for an interior design firm. Portfolio grid, services breakdown, client testimonials, and a clean editorial layout that reflects the studio's premium positioning.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>GSAP</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/interior" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WanderLux Travel -->
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-img">
+          <img src="assets/travel.png" alt="WanderLux travel agency website" loading="lazy" />
+          <div class="project-tag-row">
+            <span class="project-status is-demo">Demo project</span>
+            <span class="project-status">Travel</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>WanderLux Travel Agency</h3>
+          <p>Travel agency website with destination packages, trip planner CTAs, gallery, and stat counters. Built to inspire wanderlust and convert visitors into booking enquiries.</p>
+          <div class="project-meta">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+          </div>
+          <div class="project-outcome">
+            <strong>Live:</strong> Public demo
+            <a class="project-link" href="https://demo-site-7gxm.onrender.com/travel" target="_blank" rel="noopener">Visit →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1848,6 +1997,56 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What clients and collaborators say.</h2>
+      <p class="section-subtitle">A few words from people I've built software with.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p>Jigar took our half-finished Laravel project and turned it around fast. He spotted architectural issues we'd missed, fixed them cleanly, and kept us updated every single day. Easily one of the most reliable developers we've worked with.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <div class="testimonial-name">Sarah Mitchell</div>
+            <div class="testimonial-role">Founder, SaaS Startup (US)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p>We brought Jigar in to build a multi-vendor marketplace from scratch. The code was clean, well-documented, and scaled without drama as we grew. He communicates clearly and genuinely cares about the outcome, not just the hours.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DK</div>
+          <div>
+            <div class="testimonial-name">David Klein</div>
+            <div class="testimonial-role">Agency Owner (EU)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p>Working with Jigar across time zones was effortless. He delivered our API integrations ahead of schedule, wrote tests we could actually trust, and stuck around to support the launch. We've kept him on a retainer ever since.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PR</div>
+          <div>
+            <div class="testimonial-name">Priya Raman</div>
+            <div class="testimonial-role">Product Lead, Fintech (APAC)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
@@ -1856,7 +2055,11 @@
       <p>Available for freelance projects and contract work worldwide. Tell me about your idea. I usually respond within a few hours.</p>
 
       <div class="contact-buttons">
-        <a href="mailto:jigar.webexpert@gmail.com" class="btn btn-primary">
+        <a href="https://calendly.com/jigar-webexpert" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a call
+        </a>
+        <a href="mailto:jigar.webexpert@gmail.com" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           jigar.webexpert@gmail.com
         </a>
@@ -1878,6 +2081,10 @@
         <div class="contact-info-item">
           <span>⚡</span>
           <span><strong>Response:</strong> Within 24 hours</span>
+        </div>
+        <div class="contact-info-item">
+          <span>💰</span>
+          <span><strong>Rate:</strong> Starting from $15/hr</span>
         </div>
       </div>
     </div>
