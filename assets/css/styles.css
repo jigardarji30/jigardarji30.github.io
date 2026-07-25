@@ -71,6 +71,26 @@
     z-index: 1;
   }
 
+  /* Skip link: visually hidden until focused */
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 200;
+    padding: 10px 18px;
+    background: var(--brand);
+    color: var(--bg);
+    border-radius: 0 0 10px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
   /* NAVBAR */
   .navbar {
     position: fixed;
@@ -132,6 +152,22 @@
 
   .nav-links a:hover {
     color: var(--text);
+  }
+
+  .nav-links a[aria-current="true"] {
+    color: var(--brand);
+  }
+
+  /* underline on the section currently in view */
+  .nav-links a[aria-current="true"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--brand);
   }
 
   .nav-cta {
@@ -641,7 +677,14 @@
     font-size: 13px;
     font-weight: 500;
     gap: 6px;
+    text-decoration: none;
     transition: gap 0.2s ease;
+  }
+
+  .service-arrow:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 
   .service-card:hover .service-arrow {
@@ -1037,28 +1080,6 @@
     gap: 9px;
   }
 
-  .work-row-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    margin-top: 12px;
-  }
-
-  .work-row-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--brand);
-    text-decoration: none;
-    transition: gap 0.2s ease;
-  }
-
-  .work-row-links a:hover {
-    gap: 10px;
-  }
-
   .work-row-meta {
     display: flex;
     flex-wrap: wrap;
@@ -1265,17 +1286,6 @@
   .demo-tile:focus-visible {
     outline: 2px solid var(--brand);
     outline-offset: 3px;
-  }
-
-  /* Tiles with no public URL yet: no link affordance, no hover lift */
-  .demo-tile.is-static {
-    cursor: default;
-  }
-
-  .demo-tile.is-static:hover {
-    transform: none;
-    border-color: var(--border);
-    box-shadow: none;
   }
 
   .demo-thumb {
@@ -1744,7 +1754,6 @@
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
 
   @media (prefers-reduced-motion: reduce) {
     html {

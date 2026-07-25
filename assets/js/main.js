@@ -36,6 +36,45 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // Footer year, so it never goes stale
+  {
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
+  }
+
+  // Nav scroll-spy: marks the link whose section is currently in view.
+  {
+    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const sections = links
+      .map((link) => ({ link, el: document.querySelector(link.getAttribute('href')) }))
+      .filter((pair) => pair.el);
+
+    if (sections.length) {
+      const setActive = () => {
+        // The section whose top is closest to just below the sticky navbar wins.
+        const line = 100;
+        let current = null;
+        sections.forEach((pair) => {
+          const top = pair.el.getBoundingClientRect().top;
+          if (top <= line && (!current || top > current.el.getBoundingClientRect().top)) {
+            current = pair;
+          }
+        });
+        sections.forEach((pair) => {
+          if (pair === current) {
+            pair.link.setAttribute('aria-current', 'true');
+          } else {
+            pair.link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', setActive, { passive: true });
+      window.addEventListener('resize', setActive);
+      setActive();
+    }
+  }
+
   // Reviews slider. The track is a native scroll-snap container, so this only
   // layers on arrows and dots. Scrolling and swiping work without any of it.
   {
@@ -158,7 +197,7 @@
   }
 
   // Contact form. Submits over fetch so the visitor stays on the page.
-  // Without JS the form still POSTs natively to Web3Forms, so it never dead-ends.
+  // Without JS the form still POSTs natively to FormSubmit, so it never dead-ends.
   // Scoped in a block so these generic names can't collide with any script
   // added later (analytics snippets and the like).
   {
@@ -168,6 +207,12 @@
     const submit = form.querySelector('.form-submit');
     const FALLBACK = 'Something went wrong sending that. Please email me directly at ' +
       '<a href="mailto:jigar.webexpert@gmail.com">jigar.webexpert@gmail.com</a>.';
+
+    // Bots submit near-instantly. This only filters scripted submissions that
+    // actually load the page; anything POSTing straight to the endpoint bypasses
+    // it, so it is a nuisance filter, not a security control.
+    const loadedAt = Date.now();
+    const MIN_FILL_MS = 3000;
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -179,19 +224,33 @@
         return;
       }
 
+      if (Date.now() - loadedAt < MIN_FILL_MS) {
+        status.className = 'form-status is-err';
+        status.textContent = 'That was submitted a little too fast. Please try again.';
+        return;
+      }
+
       const label = submit.innerHTML;
       submit.disabled = true;
       submit.textContent = 'Sending…';
 
       try {
-        const response = await fetch(form.action, {
+        // Same endpoint, JSON variant. The plain action is left intact so the
+        // form still works as a normal POST when JS is unavailable.
+        const endpoint = form.action.replace(
+          'formsubmit.co/',
+          'formsubmit.co/ajax/'
+        );
+        const response = await fetch(endpoint, {
           method: 'POST',
           headers: { Accept: 'application/json' },
           body: new FormData(form),
         });
         const result = await response.json().catch(() => ({}));
+        // FormSubmit reports success as the string "true", not a boolean.
+        const ok = String(result.success ?? 'true') !== 'false';
 
-        if (response.ok && result.success !== false) {
+        if (response.ok && ok) {
           form.reset();
           status.className = 'form-status is-ok';
           status.textContent = "Thanks, that's in my inbox. I'll reply within 24 hours.";

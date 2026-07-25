@@ -147,6 +147,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#projects">Skip to content</a>
+
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
@@ -242,7 +244,7 @@
         <div class="floating-card fc-1">
           <div class="fc-icon">L</div>
           <div>
-            <div style="font-weight:600;">Laravel 11</div>
+            <div style="font-weight:600;">Laravel</div>
             <div style="color:var(--text-muted); font-size:11px;">Backend</div>
           </div>
         </div>
@@ -400,42 +402,42 @@
         <div class="service-num">/ 01</div>
         <h3>Custom Web Application Development</h3>
         <p>From idea to production. I design, build, and deploy full stack applications tailored to your specific business workflows.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
 
       <div class="service-card reveal reveal-delay-1">
         <div class="service-num">/ 02</div>
         <h3>Laravel Development</h3>
         <p>Senior-level Laravel expertise, from new builds to rescuing legacy codebases. Clean architecture, tested, and documented.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
         <div class="service-num">/ 03</div>
         <h3>Symfony &amp; Node.js</h3>
         <p>Enterprise-grade Symfony apps and Node.js/Express services. Proper architecture, event-driven flows, built to scale.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
 
       <div class="service-card reveal">
         <div class="service-num">/ 04</div>
         <h3>API Integration</h3>
         <p>Stripe, PayPal, Twilio, AWS, OpenAI, social logins, shipping providers. I integrate third-party APIs reliably and securely.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
 
       <div class="service-card reveal reveal-delay-1">
         <div class="service-num">/ 05</div>
         <h3>SaaS MVP Development</h3>
         <p>Go from concept to live MVP in weeks, not months. Multi-tenant architecture, billing, auth, and admin, all production-ready.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
         <div class="service-num">/ 06</div>
         <h3>Existing Project Maintenance</h3>
         <p>Inherited a Laravel or Symfony codebase? I can audit, refactor, fix bugs, add features, and keep things running smoothly.</p>
-        <span class="service-arrow">Learn more →</span>
+        <a class="service-arrow" href="#contact">Discuss this →</a>
       </div>
     </div>
   </div>
@@ -1123,15 +1125,20 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms: paste your access key here (free at https://web3forms.com) -->
-          <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="New project enquiry from portfolio" />
-          <input type="hidden" name="from_name" value="Portfolio contact form" />
+        <!--
+          FormSubmit needs no account and no API key: the address in the action
+          IS the destination. The very first submission triggers a one-click
+          confirmation email to that address; after you click it, submissions
+          arrive directly. JS posts to the /ajax/ variant of this same URL.
+        -->
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/jigar.webexpert@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New project enquiry from portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
           <!-- Bot trap: hidden from people, filled in by scrapers -->
           <div class="hp" aria-hidden="true">
-            <label for="botcheck">Leave this empty</label>
-            <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" />
+            <label for="_honey">Leave this empty</label>
+            <input type="text" name="_honey" id="_honey" tabindex="-1" autocomplete="off" />
           </div>
 
           <div class="form-row">
@@ -1195,7 +1202,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container footer-inner">
-    <div class="footer-text">© 2026 Jigar Darji · Full Stack Developer</div>
+    <div class="footer-text">© <span id="year">2026</span> Jigar Darji · Full Stack Developer</div>
     <div class="footer-social">
       <a href="mailto:jigar.webexpert@gmail.com" aria-label="Email">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
