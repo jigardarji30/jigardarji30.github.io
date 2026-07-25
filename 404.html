@@ -7,10 +7,18 @@
 <meta name="theme-color" content="#0a0a0b" />
 <title>404 Not Found | Jigar Darji</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23c8ff00'/%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter.woff2" crossorigin />
 <style>
+  /* Self-hosted, matching index.html. Absolute path so this page still
+     styles correctly when served for an arbitrarily deep 404 path. */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/assets/fonts/inter.woff2') format('woff2');
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
@@ -129,7 +137,7 @@
     <div class="code">404</div>
     <h1>This page took a wrong turn.</h1>
     <p>The page you're looking for doesn't exist or has been moved. Let's get you back to the homepage.</p>
-    <a href="/website/" class="btn">
+    <a href="/" class="btn">
       Back to Home
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jigardarji30.github.io/website/sitemap.xml
+Sitemap: https://jigardarji30.github.io/sitemap.xml
