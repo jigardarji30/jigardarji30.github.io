@@ -75,6 +75,57 @@
     }
   }
 
+  // Case-study category filter. Adding a project needs no JS change: give the
+  // card a data-category matching a button's data-filter and it is picked up.
+  {
+  const bar = document.getElementById('workFilters');
+  const status = document.getElementById('workFilterStatus');
+  const section = document.getElementById('work');
+
+  if (bar && section) {
+    const cards = Array.from(section.querySelectorAll('.project-card[data-category]'));
+    const buttons = Array.from(bar.querySelectorAll('.work-filter'));
+    // Blocks that only make sense in the unfiltered view
+    const extras = Array.from(section.querySelectorAll('[data-work-extra]'));
+
+    const apply = (filter) => {
+      let shown = 0;
+      cards.forEach((card) => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.hidden = !match;
+        if (match) {
+          shown++;
+          // A card revealed by filtering may never have intersected, so make
+          // sure it is not left at opacity 0 by the scroll-reveal styles.
+          card.classList.add('visible');
+        }
+      });
+
+      extras.forEach((el) => { el.hidden = filter !== 'all'; });
+
+      buttons.forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.filter === filter));
+      });
+
+      if (status) {
+        const label = (buttons.find((b) => b.dataset.filter === filter) || {}).textContent || '';
+        const name = label.replace(/\d+$/, '').trim();
+        status.textContent = shown === 0
+          ? 'No projects in this category yet.'
+          : (filter === 'all'
+              ? ''
+              : 'Showing ' + shown + ' ' + name + ' ' + (shown === 1 ? 'project' : 'projects') + '.');
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => apply(btn.dataset.filter));
+    });
+
+    apply('all');
+  }
+  }
+
   // Reviews slider. The track is a native scroll-snap container, so this only
   // layers on arrows and dots. Scrolling and swiping work without any of it.
   {

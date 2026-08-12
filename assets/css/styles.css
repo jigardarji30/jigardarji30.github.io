@@ -21,19 +21,38 @@
   }
 
   :root {
-    --bg: #0a0a0b;
-    --bg-elev: #111114;
-    --bg-card: #14141a;
-    --border: #1f1f27;
-    --border-strong: #2a2a36;
-    --text: #f5f5f7;
-    --text-dim: #c0c0ca;
-    --text-muted: #9c9ca8;
+    /* Navy-tinted surfaces, so the palette reads as a blue theme rather than
+       a neutral dark page with a blue accent on top. Neutral originals:
+         --bg:#0a0a0b --bg-elev:#111114 --bg-card:#14141a
+         --border:#1f1f27 --border-strong:#2a2a36
+         --text:#f5f5f7 --text-dim:#c0c0ca --text-muted:#9c9ca8            */
+    --bg: #070c18;
+    --bg-elev: #0d1526;
+    --bg-card: #121c31;
+    --border: #1c2740;
+    --border-strong: #2c3c5e;
+    --text: #eef2fb;
+    --text-dim: #b9c4dc;
+    --text-muted: #8391ad;
     --accent: #ffffff;
     --accent-glow: rgba(255, 255, 255, 0.08);
-    --brand: #c8ff00;
-    --brand-soft: rgba(200, 255, 0, 0.12);
-    --gradient: linear-gradient(135deg, #c8ff00 0%, #7fff5e 100%);
+
+    /* ------------------------------------------------------------------
+       BRAND PALETTE. Retheme the whole site by editing only these five.
+       --brand-ink is whatever text sits on top of a --brand fill, so the
+       contrast stays correct when the accent changes lightness.
+       Previous lime palette, kept for reference:
+         --brand: #c8ff00;  --brand-rgb: 200, 255, 0;
+         --brand-2: #7fff5e; --brand-2-rgb: 127, 255, 94; --brand-ink: #0a0a0b;
+       ------------------------------------------------------------------ */
+    --brand: #4d9dff;
+    --brand-rgb: 77, 157, 255;
+    --brand-2: #22d3ee;
+    --brand-2-rgb: 34, 211, 238;
+    --brand-ink: #06131f;
+
+    --brand-soft: rgba(var(--brand-rgb), 0.12);
+    --gradient: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
   }
 
   html {
@@ -57,8 +76,8 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(circle at 20% 10%, rgba(200, 255, 0, 0.06), transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(127, 255, 94, 0.04), transparent 40%);
+      radial-gradient(circle at 20% 10%, rgba(var(--brand-rgb), 0.10), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(var(--brand-2-rgb), 0.06), transparent 40%);
     pointer-events: none;
     z-index: 0;
   }
@@ -79,7 +98,7 @@
     z-index: 200;
     padding: 10px 18px;
     background: var(--brand);
-    color: var(--bg);
+    color: var(--brand-ink);
     border-radius: 0 0 10px 10px;
     font-size: 14px;
     font-weight: 600;
@@ -199,33 +218,54 @@
   }
 
   /* HERO */
+  /* Single-column hero: no decorative right column, so the positioning
+     statement carries the whole first screen. */
   .hero {
-    min-height: 100vh;
+    min-height: 82vh;
     display: flex;
     align-items: center;
-    padding: 120px 0 80px;
+    padding: 132px 0 64px;
     position: relative;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 60px;
+  /* Avatar-led byline: a real face is the strongest trust signal available
+     to a solo developer, and it costs almost no vertical space. */
+  .hero-byline {
+    display: flex;
     align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
   }
 
-  .hero-badge {
+  .hero-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-strong);
+    flex-shrink: 0;
+  }
+
+  .hero-byline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .hero-byline-text strong {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-byline-status {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    background: var(--brand-soft);
-    border: 1px solid rgba(200, 255, 0, 0.2);
-    border-radius: 100px;
+    gap: 8px;
     font-size: 13px;
     color: var(--brand);
-    font-weight: 500;
-    margin-bottom: 28px;
   }
 
   .pulse-dot {
@@ -241,12 +281,21 @@
     50% { opacity: 0.7; box-shadow: 0 0 0 8px transparent; }
   }
 
+  /* Sized for the current positioning headline, which is longer than a
+     three-word tagline: keeps it to three lines at desktop width. */
   .hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(34px, 5.2vw, 62px);
     font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
     margin-bottom: 24px;
+    max-width: 17ch;
+  }
+
+  @media (min-width: 1100px) {
+    .hero h1 {
+      max-width: 22ch;
+    }
   }
 
   .hero h1 .accent {
@@ -256,11 +305,16 @@
     -webkit-text-fill-color: transparent;
   }
 
+  /* stops "E-commerce" splitting at its hyphen across a line break */
+  .nb {
+    white-space: nowrap;
+  }
+
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 19px;
     color: var(--text-dim);
     margin-bottom: 16px;
-    max-width: 560px;
+    max-width: 620px;
   }
 
   .hero-tagline {
@@ -292,12 +346,12 @@
 
   .btn-primary {
     background: var(--brand);
-    color: var(--bg);
+    color: var(--brand-ink);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(200, 255, 0, 0.25);
+    box-shadow: 0 12px 24px rgba(var(--brand-rgb), 0.28);
   }
 
   .btn-secondary {
@@ -314,10 +368,12 @@
 
   .hero-stats {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 56px;
     margin-top: 56px;
-    padding-top: 36px;
+    padding-top: 32px;
     border-top: 1px solid var(--border);
+    max-width: 760px;
   }
 
   .stat-num {
@@ -333,99 +389,9 @@
     margin-top: 4px;
   }
 
-  /* Hero visual */
-  .hero-visual {
-    position: relative;
-  }
-
-  .code-card {
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    position: relative;
-  }
-
-  .code-header {
-    display: flex;
-    gap: 6px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 16px;
-  }
-
-  .code-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #2a2a36;
-  }
-
-  .code-dot:nth-child(1) { background: #ff5f57; }
-  .code-dot:nth-child(2) { background: #febc2e; }
-  .code-dot:nth-child(3) { background: #28c840; }
-
-  .code-line {
-    color: var(--text-dim);
-    margin: 4px 0;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .code-key { color: #ff79c6; }
-  .code-str { color: var(--brand); }
-  .code-fn { color: #82aaff; }
-  .code-cm { color: var(--text-muted); }
-
-  .floating-card {
-    position: absolute;
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    padding: 12px 16px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .floating-card.fc-1 {
-    top: -20px;
-    right: -20px;
-    animation-delay: 0s;
-  }
-
-  .floating-card.fc-2 {
-    bottom: -16px;
-    left: -24px;
-    animation-delay: 2s;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .fc-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--brand-soft);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--brand);
-    font-weight: 700;
-  }
-
   /* SECTION */
   .section {
-    padding: 100px 0;
+    padding: 68px 0;
     position: relative;
   }
 
@@ -462,6 +428,102 @@
     color: var(--text-dim);
     max-width: 640px;
     margin-bottom: 56px;
+  }
+
+  /* TRUST / CREDIBILITY */
+  .trust-section {
+    padding-top: 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .trust-quote {
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    padding: 30px 32px;
+  }
+
+  .trust-quote p {
+    color: var(--text-dim);
+    font-size: 15.5px;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  .trust-attr {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .trust-attr-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--text-muted);
+  }
+
+  .trust-attr-project {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .trust-points {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+
+  .trust-points li {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 14px 18px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--brand);
+    border-radius: 10px;
+  }
+
+  .trust-points strong {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .trust-points span {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* Challenge line on a case-study card */
+  .project-challenge {
+    flex: 0 0 auto;
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    color: var(--text-muted) !important;
+  }
+
+  .project-challenge span {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--brand);
   }
 
   /* ABOUT */
@@ -523,6 +585,20 @@
     height: 200%;
     background: radial-gradient(circle, var(--brand-soft) 0%, transparent 50%);
     pointer-events: none;
+  }
+
+  .about-portrait {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid var(--border-strong);
+    margin: 0 auto 22px;
+    position: relative;
+    z-index: 1;
   }
 
   .vis-row {
@@ -669,6 +745,16 @@
     line-height: 1.7;
   }
 
+  .service-tech {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
   .service-arrow {
     display: inline-flex;
     align-items: center;
@@ -691,11 +777,78 @@
     gap: 10px;
   }
 
+  /* WORK FILTERS */
+  /* Useless without JS, so only shown once JS confirms. Without it every
+     card stays visible, which is the correct fallback. */
+  .work-filters {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .js .work-filters {
+    display: flex;
+  }
+
+  .work-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .work-filter:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  .work-filter[aria-pressed="true"] {
+    background: var(--brand);
+    border-color: transparent;
+    color: var(--brand-ink);
+  }
+
+  .work-filter:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  .work-filter-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.65;
+  }
+
+  .work-filter-status {
+    margin: 10px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    min-height: 20px;
+  }
+
+  /* A filtered-out card is removed from the grid entirely so no gaps remain */
+  .project-card[hidden],
+  .project-group-label[hidden],
+  .work-list[hidden] {
+    display: none !important;
+  }
+
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
 
   .project-card {
@@ -715,7 +868,7 @@
   }
 
   .project-img {
-    height: 240px;
+    height: 158px;
     position: relative;
     overflow: hidden;
     background: var(--bg-card);
@@ -757,15 +910,98 @@
   }
 
   .project-content {
-    padding: 28px;
+    padding: 20px 20px 22px;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  .project-content h3 {
-    font-size: 22px;
+  /* category chip above the title, so the grid stays scannable by sector */
+  .project-cat {
+    align-self: flex-start;
     margin-bottom: 10px;
+    padding: 3px 9px;
+    background: var(--brand-soft);
+    border: 1px solid rgba(var(--brand-rgb), 0.22);
+    border-radius: 100px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--brand);
+  }
+
+  .project-summary {
+    flex: 1;
+    color: var(--text-dim);
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .meta-more {
+    color: var(--text-muted) !important;
+    border-style: dashed !important;
+  }
+
+  /* Full detail folded away by default: keeps 12+ cards scannable while the
+     case-study depth stays one click away. */
+  .project-more {
+    margin-top: 4px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .project-more > summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  .project-more > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .project-more > summary::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--brand);
+    border-bottom: 2px solid var(--brand);
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.2s ease;
+  }
+
+  .project-more[open] > summary::after {
+    transform: rotate(-135deg) translateY(-1px);
+  }
+
+  .project-more > summary:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .project-more p,
+  .project-more .project-meta,
+  .project-more .project-outcome {
+    margin-top: 12px;
+  }
+
+  .project-more > p {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-dim);
+  }
+
+  .project-content h3 {
+    font-size: 16.5px;
+    margin-bottom: 8px;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -781,13 +1017,13 @@
   .project-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 6px;
+    margin-bottom: 0;
   }
 
   .project-meta span {
-    font-size: 12px;
-    padding: 4px 10px;
+    font-size: 11px;
+    padding: 3px 8px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -796,13 +1032,14 @@
   }
 
   .project-outcome {
-    padding-top: 18px;
+    padding-top: 14px;
     border-top: 1px solid var(--border);
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
   }
 
   .project-outcome strong {
@@ -828,7 +1065,7 @@
     width: 36px;
     height: 36px;
     background: var(--brand);
-    color: var(--bg);
+    color: var(--brand-ink);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -851,7 +1088,7 @@
 
   /* CONTACT */
   .contact {
-    padding: 100px 0;
+    padding: 68px 0;
   }
 
   .contact-card {
@@ -1105,6 +1342,17 @@
   }
 
   /* CLIENT REVIEWS */
+  /* The only section that breaks the rhythm: full-bleed, slightly lighter than
+     the page, hairlines top and bottom. Kept darker than .review-card so the
+     cards still read as raised. */
+  #reviews {
+    background:
+      linear-gradient(180deg, rgba(var(--brand-rgb), 0.025), transparent 55%),
+      #0d0d11;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
   /* Reviews slider: a scroll-snap track, so it still works with no JS.
      JS only adds the arrows and dots. */
   .reviews-slider {
@@ -1341,6 +1589,122 @@
     gap: 10px;
   }
 
+  /* AGENCY PARTNERSHIP */
+  .agency-panel {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding: 44px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px;
+  }
+
+  .agency-main .section-title {
+    font-size: clamp(26px, 3vw, 36px);
+    margin-bottom: 14px;
+  }
+
+  .agency-lead {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 14px;
+  }
+
+  .agency-main p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .agency-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .agency-list {
+    list-style: none;
+  }
+
+  .agency-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .agency-list li:last-child {
+    border-bottom: none;
+  }
+
+  .agency-list svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+    color: var(--brand);
+  }
+
+  .agency-list strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* TECHNICAL AUDIT */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .audit-col {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 28px;
+  }
+
+  .audit-col h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .audit-list {
+    list-style: none;
+  }
+
+  .audit-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 7px 0;
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .audit-list svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+    color: var(--brand);
+  }
+
+  .audit-note {
+    margin: 20px 0 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
   /* PACKAGES */
   .packages-grid {
     display: grid;
@@ -1365,7 +1729,7 @@
   }
 
   .package-card.is-featured {
-    border-color: rgba(200, 255, 0, 0.35);
+    border-color: rgba(var(--brand-rgb), 0.35);
   }
 
   .package-head {
@@ -1387,7 +1751,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--bg);
+    color: var(--brand-ink);
     background: var(--brand);
     padding: 3px 10px;
     border-radius: 100px;
@@ -1466,12 +1830,12 @@
 
   .is-featured .package-cta {
     background: var(--brand);
-    color: var(--bg);
+    color: var(--brand-ink);
     border-color: transparent;
   }
 
   .is-featured .package-cta:hover {
-    box-shadow: 0 10px 22px rgba(200, 255, 0, 0.25);
+    box-shadow: 0 10px 22px rgba(var(--brand-rgb), 0.25);
   }
 
   /* PROCESS */
@@ -1767,8 +2131,7 @@
       transition: none;
     }
 
-    .pulse-dot,
-    .floating-card {
+    .pulse-dot {
       animation: none;
     }
 
@@ -1781,17 +2144,9 @@
 
   /* RESPONSIVE */
   @media (max-width: 968px) {
-    .hero-grid,
     .about-grid {
       grid-template-columns: 1fr;
       gap: 40px;
-    }
-
-    .hero-visual {
-      order: -1;
-      max-width: 400px;
-      margin: 0 auto;
-      width: 100%;
     }
 
     .skills-grid,
@@ -1801,7 +2156,7 @@
     }
 
     .projects-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .work-row {
@@ -1816,8 +2171,15 @@
 
     .packages-grid,
     .process-list,
-    .demo-grid {
+    .demo-grid,
+    .audit-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .agency-panel {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 32px;
     }
 
     /* two reviews per view */
@@ -1825,9 +2187,10 @@
       flex-basis: calc((100% - 24px) / 2);
     }
 
-    .contact-layout {
+    .contact-layout,
+    .trust-grid {
       grid-template-columns: 1fr;
-      gap: 36px;
+      gap: 28px;
     }
   }
 
@@ -1855,7 +2218,7 @@
     }
 
     .section {
-      padding: 70px 0;
+      padding: 52px 0;
     }
 
     .hero {
@@ -1891,8 +2254,15 @@
     .packages-grid,
     .process-list,
     .demo-grid,
+    .audit-grid,
+    .projects-grid,
+    .reviews-grid,
     .form-row {
       grid-template-columns: 1fr;
+    }
+
+    .agency-panel {
+      padding: 24px 20px;
     }
 
     /* one review per view */

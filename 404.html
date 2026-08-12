@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, follow" />
 <meta name="theme-color" content="#0a0a0b" />
 <title>404 Not Found | Jigar Darji</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23c8ff00'/%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%234d9dff'/%3E%3C/svg%3E" />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter.woff2" crossorigin />
 <style>
   /* Self-hosted, matching index.html. Absolute path so this page still
@@ -22,13 +22,14 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #0a0a0b;
-    --text: #f5f5f7;
-    --text-dim: #a1a1aa;
-    --text-muted: #6b6b76;
-    --border: #2a2a36;
-    --brand: #c8ff00;
-    --brand-soft: rgba(200, 255, 0, 0.12);
+    --bg: #070c18;
+    --text: #eef2fb;
+    --text-dim: #b9c4dc;
+    --text-muted: #8391ad;
+    --border: #2c3c5e;
+    --brand: #4d9dff;
+    --brand-ink: #06131f;
+    --brand-soft: rgba(77, 157, 255, 0.12);
   }
 
   body {
@@ -51,8 +52,8 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(circle at 20% 20%, rgba(200, 255, 0, 0.08), transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(127, 255, 94, 0.05), transparent 40%);
+      radial-gradient(circle at 20% 20%, rgba(77, 157, 255, 0.12), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.07), transparent 40%);
     pointer-events: none;
   }
 
@@ -67,7 +68,7 @@
     font-weight: 900;
     letter-spacing: -0.05em;
     line-height: 1;
-    background: linear-gradient(135deg, #c8ff00 0%, #7fff5e 100%);
+    background: linear-gradient(135deg, #4d9dff 0%, #22d3ee 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -94,7 +95,7 @@
     gap: 10px;
     padding: 14px 26px;
     background: var(--brand);
-    color: var(--bg);
+    color: var(--brand-ink);
     border-radius: 100px;
     text-decoration: none;
     font-size: 14px;
@@ -104,7 +105,7 @@
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(200, 255, 0, 0.25);
+    box-shadow: 0 12px 24px rgba(77, 157, 255, 0.3);
   }
 
   .badge {
@@ -113,7 +114,7 @@
     gap: 8px;
     padding: 6px 14px;
     background: var(--brand-soft);
-    border: 1px solid rgba(200, 255, 0, 0.2);
+    border: 1px solid rgba(77, 157, 255, 0.24);
     border-radius: 100px;
     font-size: 12px;
     color: var(--brand);
